@@ -70,12 +70,15 @@ class Login(webapp.RequestHandler):
 			# auth_info.  auth_info expects an HTTP Post with the following paramters:
 			api_params = {
 				'token': token,
-				'apiKey': '<YOUR_RPX_APPLICATIONS_40_CHARACTER_API_KEY>',
+				'apiKey': '03069caa4f4bade32946e42809cd811d59abf52a',
 				'format': 'json',
 			}
-			http_response = urllib2.urlopen('https://rpxnow.com/api/v2/auth_info',
+			
+			http_response = urllib2.urlopen('http://nathan-dev.janrain.com:8080/api/v2/auth_info',
 											urllib.urlencode(api_params))
 			response = http_response.read()
+
+			print response
 
 			auth_info = simplejson.loads(response)
 			profile = auth_info['profile']
@@ -98,7 +101,7 @@ class Login(webapp.RequestHandler):
 			# Will expire in two weeks
 			cookie['sid']['expires'] = 14 * 24 * 60 * 60
 			cookie['sid']['path'] = "/"
-			cookie['sid']['domain'] = "<YOUR_DOMAIN>"
+			cookie['sid']['domain'] = "jrtokentest.appspot.com"
 			
 			self.response.headers.add_header('Set-Cookie', cookie['sid'].OutputString())
 			self.response.out.write(response)
