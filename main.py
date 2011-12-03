@@ -114,35 +114,35 @@ class Login(webapp.RequestHandler):
             self.response.headers.add_header('Set-Cookie', cookie['sid'].OutputString())
             # self.response.out.write(response)
             self.response.out.write('<html><head>' +
-                                    '<script type="text/javascript" charset="utf-8" src="http://nathan-mac.janrain.com:8081/target/target-script-min.js"></script>' +
+#                                    '<script type="text/javascript" charset="utf-8" src="http://nathan-mac.janrain.com:8081/target/target-script-min.js"></script>' +
 #                                    '<script type="text/javascript" src="' + self.request.get('pgsrc') + '"></script>' +
-                                    '''
-                                    <script type="text/javascript">
-                                    PhoneGap = {};
-                                    commandQueue = [];
-                                    command = {
-                                        className: "com.phonegap.debugconsole",
-                                        methodName: "log",
-                                        arguments: ["INVALID", "asdf"],
-                                        options: { logLevel:"INFO" }
-                                    };
-                                    commandQueue.push(JSON.stringify(command));
-                                    PhoneGap.getAndClearQueuedCommands = function () {
-                                        var json = JSON.stringify(commandQueue);
-                                        commandQueue = [];
-                                        return json;
-                                    };
-                                    gapBridge = document.createElement("iframe");
-                                    gapBridge.setAttribute("style", "display:none;");
-                                    gapBridge.setAttribute("height","0px");
-                                    gapBridge.setAttribute("width","0px");
-                                    gapBridge.setAttribute("frameborder","0");
-                                    document.documentElement.appendChild(gapBridge);
-                                    PhoneGap.gapBridge = gapBridge;
-                                    PhoneGap.gapBridge.src = "gap://ready";
-
-                                    </script>
-                                    ''' +
+#                                    '''
+#                                    <script type="text/javascript">
+#                                    PhoneGap = {};
+#                                    commandQueue = [];
+#                                    command = {
+#                                        className: "com.phonegap.debugconsole",
+#                                        methodName: "log",
+#                                        arguments: ["INVALID", "asdf"],
+#                                        options: { logLevel:"INFO" }
+#                                    };
+#                                    commandQueue.push(JSON.stringify(command));
+#                                    PhoneGap.getAndClearQueuedCommands = function () {
+#                                        var json = JSON.stringify(commandQueue);
+#                                        commandQueue = [];
+#                                        return json;
+#                                    };
+#                                    gapBridge = document.createElement("iframe");
+#                                    gapBridge.setAttribute("style", "display:none;");
+#                                    gapBridge.setAttribute("height","0px");
+#                                    gapBridge.setAttribute("width","0px");
+#                                    gapBridge.setAttribute("frameborder","0");
+#                                    document.documentElement.appendChild(gapBridge);
+#                                    PhoneGap.gapBridge = gapBridge;
+#                                    PhoneGap.gapBridge.src = "gap://ready";
+#
+#                                    </script>
+#                                    ''' +
                                     '</head><body>' + response +
 #                                    '<br/>' + self.request.get('pgsrc') +
                                     '</body></html>')
