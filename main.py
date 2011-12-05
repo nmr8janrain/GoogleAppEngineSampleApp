@@ -146,10 +146,10 @@ class Login(webapp.RequestHandler):
                                     '</head><body>' + response +
 #                                    '<br/>' + self.request.get('pgsrc') +
                                     '</body></html>')
-                # self.redirect("file://index.html")
+            # self.redirect("file://index.html")
             # self.redirect("/")
-            # self.response.set_status(302)
-            # self.response.headers.add_header('location', self.request.get('redirect'))
+            self.response.set_status(302)
+            self.response.headers.add_header('location', self.request.get('redirect'))
 
 class TwoOhFour(webapp.RequestHandler):
     def get(self):
